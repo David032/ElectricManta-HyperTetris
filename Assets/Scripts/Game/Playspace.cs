@@ -18,9 +18,9 @@ public class Playspace : MonoBehaviour
 
     public static bool InsideBorder(Vector2 pos)
     {
-        return (pos.x >= -8 &&
-                pos.x < 8 &&
-                pos.y >= -16);
+        return (pos.x >= 0 &&
+                pos.x < 16 &&
+                pos.y >= 1);
     }
     public static void deleteRow(int y)
     {
