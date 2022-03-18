@@ -47,6 +47,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ba67c112b34c3b74cab95470e52b4ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PotentialColours:
+  - {r: 1, g: 0, b: 0, a: 1}
+  - {r: 0, g: 1, b: 0.038576365, a: 1}
+  - {r: 1, g: 0, b: 0.74660206, a: 1}
+  - {r: 0, g: 0.98873687, b: 1, a: 1}
+  - {r: 0.8962264, g: 0.8851643, b: 0.47770557, a: 1}
 --- !u!1001 &3710490197504829208
 PrefabInstance:
   m_ObjectHideFlags: 0

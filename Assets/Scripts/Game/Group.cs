@@ -5,8 +5,10 @@ using UnityEngine.InputSystem;
 
 public class Group : MonoBehaviour
 {
+    public List<Color> PotentialColours;
     private float lastFall;
     PlayerInput inputSystem;
+    GameController Controller;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +21,18 @@ public class Group : MonoBehaviour
 
         inputSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerInput>();
         AssignControls();
+        SetColour();
+        Controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+    }
+
+    private void SetColour()
+    {
+        Color randomColour = PotentialColours[Random.Range(0, PotentialColours.Count)];
+        SpriteRenderer[] sprites = GetComponentsInChildren<SpriteRenderer>();
+        foreach (var graphic in sprites)
+        {
+            graphic.color = randomColour;
+        }
     }
 
     private void AssignControls()
@@ -63,8 +77,6 @@ public class Group : MonoBehaviour
         foreach (Transform child in transform)
         {
             Vector2 v = Playspace.RoundVec2(child.position);
-            print(child.gameObject.name + " - " + v);
-            print(Playspace.grid.Length);
 
             // Not inside Border?
             if (!Playspace.InsideBorder(v))

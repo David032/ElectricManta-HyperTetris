@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Playspace : MonoBehaviour
 {
-    public static int w = 16;
+    public static int w = 17;
     public static int h = 32;
     public static Transform[,] grid = new Transform[w, h];
 
@@ -19,7 +19,7 @@ public class Playspace : MonoBehaviour
     public static bool InsideBorder(Vector2 pos)
     {
         return (pos.x >= 0 &&
-                pos.x < 16 &&
+                pos.x < 17 &&
                 pos.y >= 1);
     }
     public static void deleteRow(int y)
@@ -52,8 +52,13 @@ public class Playspace : MonoBehaviour
     public static bool isRowFull(int y)
     {
         for (int x = 0; x < w; ++x)
+        {
             if (grid[x, y] == null)
+            {
+                print("Grid ref at " + x + "," + y + " was not filled");
                 return false;
+            }
+        }
         return true;
     }
     public static void deleteFullRows()
