@@ -8,7 +8,6 @@ public class Group : MonoBehaviour
     public List<Color> PotentialColours;
     private float lastFall;
     PlayerInput inputSystem;
-    GameController Controller;
 
     // Start is called before the first frame update
     void Start()
@@ -22,7 +21,6 @@ public class Group : MonoBehaviour
         inputSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerInput>();
         AssignControls();
         SetColour();
-        Controller = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
     }
 
     private void SetColour()

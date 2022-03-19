@@ -55,7 +55,6 @@ public class Playspace : MonoBehaviour
         {
             if (grid[x, y] == null)
             {
-                print("Grid ref at " + x + "," + y + " was not filled");
                 return false;
             }
         }
@@ -63,15 +62,20 @@ public class Playspace : MonoBehaviour
     }
     public static void deleteFullRows()
     {
+        int scoreMulti = 0;
+        int initialScore = 0;
         for (int y = 0; y < h; ++y)
         {
             if (isRowFull(y))
             {
                 deleteRow(y);
+                initialScore++;
+                scoreMulti += initialScore + 1;
                 decreaseRowsAbove(y + 1);
                 --y;
             }
         }
+        GameController.Instance.PlayerScore = scoreMulti * initialScore;
     }
     #endregion
 

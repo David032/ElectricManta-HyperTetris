@@ -1,13 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class GameController: MonoBehaviour
+public class GameController:Cardinal.CardinalSingleton<GameController>
 {
     [SerializeField]
-    static int Score = 0;
+    int Score = 0;
+    public int PlayerScore 
+    {
+        get 
+        {
+            return Score;
+        }
+        set 
+        {
+            Score += value;
+            OnScoreChange.Invoke();
+        }
+    }
 
-    public static int GetScore() { return Score; }
-    public static void IncreaseScore(int value) { Score += value; }
+    public UnityEvent OnScoreChange;
 
 }
