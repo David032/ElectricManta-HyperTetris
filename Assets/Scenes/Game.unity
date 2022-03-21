@@ -279,6 +279,7 @@ GameObject:
   m_Component:
   - component: {fileID: 84082987}
   - component: {fileID: 84082988}
+  - component: {fileID: 84082989}
   m_Layer: 0
   m_Name: Frame_StageFrame_n_Purple
   m_TagString: Untagged
@@ -351,6 +352,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &84082989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84082986}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a7a6b114db7b949a4926d37dc9299c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectAnimation: 1
 --- !u!1 &145246228
 GameObject:
   m_ObjectHideFlags: 0
@@ -934,6 +948,7 @@ GameObject:
   m_Component:
   - component: {fileID: 475488989}
   - component: {fileID: 475488990}
+  - component: {fileID: 475488991}
   m_Layer: 0
   m_Name: Frame_StageFrame_n_Yellow
   m_TagString: Untagged
@@ -1006,6 +1021,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &475488991
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475488988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a7a6b114db7b949a4926d37dc9299c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectAnimation: 1
 --- !u!1 &487432255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2176,6 +2204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1403732434}
   - component: {fileID: 1403732435}
+  - component: {fileID: 1403732436}
   m_Layer: 0
   m_Name: Frame_StageFrame_d
   m_TagString: Untagged
@@ -2248,6 +2277,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1403732436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403732433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a7a6b114db7b949a4926d37dc9299c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectAnimation: 1
 --- !u!1 &1510953295
 GameObject:
   m_ObjectHideFlags: 0
@@ -2259,6 +2301,8 @@ GameObject:
   - component: {fileID: 1510953298}
   - component: {fileID: 1510953297}
   - component: {fileID: 1510953296}
+  - component: {fileID: 1510953300}
+  - component: {fileID: 1510953299}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2331,6 +2375,120 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1510953299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510953295}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18b1585d41d00064aa36ebc8f0de0b63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Tracks:
+  - {fileID: 8300000, guid: 3a72df7e73b827b4f8da3895df265e27, type: 3}
+  - {fileID: 8300000, guid: ea34fe4ef9715c6419ed3ab6515d1e14, type: 3}
+  - {fileID: 8300000, guid: aca3dda0bfaff1347825e194cbfa8f18, type: 3}
+  - {fileID: 8300000, guid: 8561ee37a00659d46b051ef4ddf33eb3, type: 3}
+  AudioPlayer: {fileID: 0}
+--- !u!82 &1510953300
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1510953295}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1524128810
 GameObject:
   m_ObjectHideFlags: 0
@@ -2743,6 +2901,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1792312952}
   - component: {fileID: 1792312953}
+  - component: {fileID: 1792312954}
   m_Layer: 0
   m_Name: Frame_StageFrame_n_Blue
   m_TagString: Untagged
@@ -2815,6 +2974,19 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1792312954
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792312951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 00a7a6b114db7b949a4926d37dc9299c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObjectAnimation: 1
 --- !u!1 &1838047517
 GameObject:
   m_ObjectHideFlags: 0
