@@ -8,18 +8,21 @@ public class Group : MonoBehaviour
     public List<Color> PotentialColours;
     private float lastFall;
     PlayerInput inputSystem;
+    GameController controller;
 
     // Start is called before the first frame update
     void Start()
     {
+        controller = GameController.Instance;
         if (!IsValidGridPos())
         {
-            GameController.Instance.GameOverMessage();
+            controller.GameOverMessage();
             Destroy(gameObject);
         }
 
         inputSystem = GameObject.FindGameObjectWithTag("GameController").GetComponent<PlayerInput>();
         AssignControls();
+        AttachToButtons();
         SetColour();
     }
 
@@ -35,10 +38,26 @@ public class Group : MonoBehaviour
 
     private void AssignControls()
     {
+        //This doesn't work on mobile
         inputSystem.actions.FindAction("MoveLeft").performed += MoveLeft;
         inputSystem.actions.FindAction("MoveRight").performed += MoveRight;
         inputSystem.actions.FindAction("Rotate").performed += Rotate;
         inputSystem.actions.FindAction("MoveDown").performed += MoveDown;
+    }
+
+    void AttachToButtons() 
+    {
+        controller.LeftButton.onClick.AddListener(MoveLeft);
+        controller.RightButton.onClick.AddListener(MoveRight);
+        controller.DownButton.onClick.AddListener(MoveDown);
+        controller.RotateButton.onClick.AddListener(Rotate);
+    }
+    void RemoveFromButtons()
+    {
+        controller.LeftButton.onClick.RemoveAllListeners();
+        controller.RightButton.onClick.RemoveAllListeners();
+        controller.DownButton.onClick.RemoveAllListeners();
+        controller.RotateButton.onClick.RemoveAllListeners();
     }
 
     void RemoveControls() 
@@ -64,7 +83,8 @@ public class Group : MonoBehaviour
                 transform.position += new Vector3(0, 1, 0);
                 Playspace.deleteFullRows();
                 RemoveControls();
-                FindObjectOfType<Spawner>().SpawnObject();
+                RemoveFromButtons();
+                GameController.Instance.Spawner.SpawnObject();
                 enabled = false;
             }
             lastFall = Time.time;
@@ -104,6 +124,7 @@ public class Group : MonoBehaviour
         }
     }
 
+    #region Input system based controls
     public void MoveLeft(InputAction.CallbackContext context) 
     {
         if (!context.performed)
@@ -152,7 +173,6 @@ public class Group : MonoBehaviour
         else
             transform.Rotate(0, 0, 90);
     }
-
     public void MoveDown(InputAction.CallbackContext context) 
     {
         if (!context.performed)
@@ -170,10 +190,71 @@ public class Group : MonoBehaviour
             transform.position += new Vector3(0, 1, 0);
             Playspace.deleteFullRows();
             RemoveControls();
-            FindObjectOfType<Spawner>().SpawnObject();
+            RemoveFromButtons();
+            GameController.Instance.Spawner.SpawnObject();
             enabled = false;
         }
 
         lastFall = Time.time;
     }
+    #endregion
+    #region Button based controls
+    public void MoveLeft()
+    {
+        transform.position += new Vector3(-1, 0, 0);
+
+        if (IsValidGridPos())
+        {
+            UpdateGrid();
+        }
+        else
+        {
+            transform.position += new Vector3(1, 0, 0);
+        }
+    }
+    public void MoveRight()
+    {
+        transform.position += new Vector3(1, 0, 0);
+
+        if (IsValidGridPos())
+        {
+            UpdateGrid();
+        }
+        else
+        {
+            transform.position += new Vector3(-1, 0, 0);
+        }
+    }
+    public void Rotate()
+    {
+        transform.Rotate(0, 0, -90);
+        if (IsValidGridPos())
+        {
+            UpdateGrid();
+        }
+        else
+            transform.Rotate(0, 0, 90);
+    }
+    public void MoveDown()
+    {
+        transform.position += new Vector3(0, -1, 0);
+        if (IsValidGridPos())
+        {
+            // It's valid. Update grid.
+            UpdateGrid();
+        }
+        else
+        {
+            transform.position += new Vector3(0, 1, 0);
+            Playspace.deleteFullRows();
+            RemoveControls();
+            RemoveFromButtons();
+            GameController.Instance.Spawner.SpawnObject();
+            enabled = false;
+        }
+
+        lastFall = Time.time;
+    }
+    #endregion
+
 }

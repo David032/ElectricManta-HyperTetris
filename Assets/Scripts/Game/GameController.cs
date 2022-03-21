@@ -3,13 +3,21 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameController:Cardinal.CardinalSingleton<GameController>
 {
     [SerializeField]
     int Score = 0;
     [SerializeField]
-    public GameObject EndGameWindow;
+    GameObject EndGameWindow;
+
+    public Spawner Spawner;
+    public Button LeftButton;
+    public Button RightButton;
+    public Button DownButton;
+    public Button RotateButton;
+
     public int PlayerScore 
     {
         get 
