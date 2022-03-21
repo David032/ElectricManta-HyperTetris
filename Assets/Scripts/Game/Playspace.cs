@@ -26,10 +26,13 @@ public class Playspace : MonoBehaviour
     {
         for (int x = 0; x < w; ++x)
         {
+            grid[x, y].gameObject.GetComponent<SpriteRenderer>().enabled = false;
+            grid[x, y].gameObject.GetComponentInChildren<ParticleSystem>().Play();
             Destroy(grid[x, y].gameObject);
             grid[x, y] = null;
         }
     }
+
 
     public static void decreaseRow(int y)
     {
