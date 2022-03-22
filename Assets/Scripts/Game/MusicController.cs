@@ -7,7 +7,6 @@ public class MusicController : MonoBehaviour
     public List<AudioClip> Tracks = new List<AudioClip>();
     public AudioSource AudioPlayer;
 
-    // Start is called before the first frame update
     void Start()
     {
         AudioPlayer = GetComponent<AudioSource>();
@@ -15,7 +14,6 @@ public class MusicController : MonoBehaviour
         AudioPlayer.Play();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (AudioPlayer.time == AudioPlayer.clip.length)

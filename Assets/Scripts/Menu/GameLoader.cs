@@ -7,7 +7,8 @@ public class GameLoader : MonoBehaviour
 {
     public void LoadGame() 
     {
-        //Quick and dirty load
+        //Ideally this should async into a loading screen,
+        //but there's so few assets this'll be fine
         SceneManager.LoadScene(1);
     }
 }

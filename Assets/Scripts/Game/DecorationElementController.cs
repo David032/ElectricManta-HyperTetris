@@ -14,7 +14,6 @@ public class DecorationElementController : MonoBehaviour
 
     public AnimationType ObjectAnimation = AnimationType.Wiggle;
 
-    // Start is called before the first frame update
     void Start()
     {
         switch (ObjectAnimation)

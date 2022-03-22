@@ -5,17 +5,6 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public List<GameObject> Groups = new List<GameObject>();
-    // Start is called before the first frame update
-    void Start()
-    {
-        SpawnObject();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public void SpawnObject() 
     {

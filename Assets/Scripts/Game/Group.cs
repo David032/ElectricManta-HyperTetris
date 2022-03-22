@@ -44,7 +44,6 @@ public class Group : MonoBehaviour
         inputSystem.actions.FindAction("Rotate").performed += Rotate;
         inputSystem.actions.FindAction("MoveDown").performed += MoveDown;
     }
-
     void AttachToButtons() 
     {
         controller.LeftButton.onClick.AddListener(MoveLeft);
@@ -59,7 +58,6 @@ public class Group : MonoBehaviour
         controller.DownButton.onClick.RemoveAllListeners();
         controller.RotateButton.onClick.RemoveAllListeners();
     }
-
     void RemoveControls() 
     {
         inputSystem.actions.FindAction("MoveLeft").performed -= MoveLeft;
